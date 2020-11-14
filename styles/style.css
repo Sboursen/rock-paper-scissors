@@ -1,0 +1,208 @@
+:root {
+    --main-background-color: #100f1a;
+    --center-background-color: #edebe9;
+    --computer-background-color: hsl(0, 100%, 50%);
+    --player-background-color: hsl(240, 100%, 50%);
+}
+html,
+body {
+    font-family: 'Patrick Hand', cursive;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-background-color);
+}
+
+main.main {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 25% 50% 25%;
+    grid-gap: 5px 10px;
+    grid-template-areas:
+        '. computer-deck .'
+        'controls arena scores'
+        '. player-deck .';
+
+    border: black;
+    border-width: 2px;
+    background-color: var(--main-background-color);
+    width: 95%;
+    height: 95%;
+}
+
+.player-deck,
+.computer-deck,
+.timer,
+.arena,
+.scores {
+    margin: 5px;
+}
+
+/* ------------------------------Decks styling--------------------------------*/
+
+.computer-deck {
+    grid-area: computer-deck;
+    background-color: var(--computer-background-color);
+    border-radius: 30% 30% 0% 0%;
+}
+
+.player-deck {
+    grid-area: player-deck;
+    background-color: var(--player-background-color);
+    border-radius: 0% 0% 30% 30%;
+}
+
+.computer-deck,
+.player-deck {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: whitesmoke;
+}
+
+.opponent-name {
+    height: 28%;
+    text-align: center;
+    font-size: 4vmin;
+    font-weight: bold;
+    display: inline;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.computer-deck > .opponent-name {
+    border-radius: 0% 0% 50% 50%;
+    background-color: hsl(0, 100%, 27%);
+}
+
+.player-deck > .opponent-name {
+    border-radius: 50% 50% 0% 0%;
+    background-color: hsl(240, 100%, 27%);
+}
+
+.cards {
+    height: 68%;
+    display: flex;
+    justify-content: center;
+    align-items: space-around;
+    margin: 1% 10%;
+    background-color: inherit;
+}
+
+.player-deck > .cards {
+    flex-direction: row-reverse;
+}
+.cards > .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.cards > .card > img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 25%;
+}
+
+/* ------------------------------arena styling--------------------------------*/
+
+.arena {
+    grid-area: arena;
+    display: grid;
+    grid-template-rows: 1fr 40px 1fr;
+    background-color: var(--center-background-color);
+}
+
+.arena > hr {
+    border: 20px solid #faab00;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* ------------------------------scores styling--------------------------------*/
+
+.scores {
+    grid-area: scores;
+    display: grid;
+    grid-template-rows: 1fr 40px 1fr;
+    background-color: var(--center-background-color);
+    height: 80%;
+    align-self: center;
+    border-radius: 0% 25% 25% 0%;
+}
+
+.scores > hr {
+    border: 20px solid #faab00;
+    margin: 0px;
+    padding: 0px;
+    background-color: inherit;
+}
+
+.player-score,
+.computer-score {
+    text-align: center;
+    font-size: 12vmin;
+    font-weight: bold;
+    display: inline;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.player-score {
+    background-color: var(--player-background-color);
+    border-radius: 0% 0% 25% 0%;
+}
+
+.computer-score {
+    background-color: var(--computer-background-color);
+    border-radius: 0% 25% 0% 0%;
+}
+
+/* ------------------------------controls styling--------------------------------*/
+.controls {
+    grid-area: controls;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--center-background-color);
+}
+
+.controls > .timer {
+    height: 40%;
+    width: height;
+    border-radius: 50%;
+    background-color: var(--main-background-color);
+    color: white;
+    text-align: center;
+    font-size: 13vmin;
+    margin: 5%;
+}
+
+.buttons {
+    display: flex;
+    height: 50%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.start-button,
+.resign-button {
+    font-size: 3vh;
+    text-align: center;
+    width: fit-content;
+    padding: 5% 10%;
+    border-radius: 5%;
+    background-color: honeydew;
+    border: 5px solid black;
+}
